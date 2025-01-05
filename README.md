@@ -9,10 +9,54 @@ A Model Context Protocol server for interacting with [Babashka](https://github.c
 - Access command history through MCP resources
 - Configurable command timeouts
 
+## Prerequisites
+
+### Install Babashka
+
+Babashka can be installed in several ways:
+
+#### macOS
+```bash
+brew install borkdude/brew/babashka
+```
+
+#### Linux
+```bash
+bash < <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install)
+```
+
+#### Windows
+```powershell
+# Using scoop
+scoop install babashka
+```
+
+For other installation methods, see the [official Babashka installation guide](https://github.com/babashka/babashka#installation).
+
+### Verify Installation
+
+After installation, verify Babashka works:
+```bash
+# Check version
+bb --version
+
+# Try a simple expression
+bb -e '(+ 1 2 3)'
+
+# Run a script from string
+bb -e '(defn hello [x] (str "Hello, " x "!")) (hello "World")'
+
+# Use -i flag to process lines of input
+ls | bb -i '(take 2 *input*)'
+```
+
 ## Installation
 
 ```bash
+# Install dependencies
 npm install
+
+# Build the MCP server
 npm run build
 ```
 
@@ -94,3 +138,33 @@ Babashka supports explicit tail call optimization through the `recur` special fo
 ## Development
 
 This server is designed to eventually become self-hosting, meaning it will be rewritten in Babashka itself. The current TypeScript implementation serves as a reference and starting point.
+
+## Roadmap
+
+1. **Self-Hosted Implementation**
+   - Rewrite the MCP server in Babashka
+   - Leverage Babashka's native capabilities for better performance
+   - Remove Node.js dependency
+   - Maintain full compatibility with MCP protocol
+   - Support all current features:
+     - Command execution
+     - Resource management
+     - Command history
+     - Timeout handling
+
+2. **Enhanced Features**
+   - Add support for Babashka pods
+   - Implement file watching capabilities
+   - Add REPL integration
+   - Support for multiple Babashka instances
+
+3. **Performance Optimizations**
+   - Implement caching strategies
+   - Optimize resource usage
+   - Reduce startup time
+
+4. **Testing & Documentation**
+   - Comprehensive test suite
+   - API documentation
+   - Usage examples
+   - Performance benchmarks
