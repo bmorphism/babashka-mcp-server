@@ -2,6 +2,8 @@
 
 A Model Context Protocol server for interacting with [Babashka](https://github.com/babashka/babashka), a native Clojure interpreter for scripting.
 
+<a href="https://glama.ai/mcp/servers/5x0u155x1h"><img width="380" height="200" src="https://glama.ai/mcp/servers/5x0u155x1h/badge" alt="Babashka Server MCP server" /></a>
+
 ## Features
 
 - Execute Babashka code through MCP tools
